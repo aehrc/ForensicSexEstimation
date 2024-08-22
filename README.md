@@ -9,31 +9,40 @@ A deep learning framework for forensic sex estimation from 3D CT
 
 ## Setup conda environment Python3.9
 
-pip install -r requirements.txt
+>```
+>git clone https://github.com/aehrc/ForensicSexEstimation.git
+>cd ForensicSexEstimation
+>pip install -r requirements.txt
+>```
 
 For TotalSegmentator installation, please use the v2.0.5 release:
 
 https://github.com/wasserth/TotalSegmentator/releases/tag/v2.0.5
 
+
+Please place your dicom CT data in the folder ./Cranial CT data
+
+## Data preprocessing
+
+Converting dcm file into nifti, isotropic resampling to 1X1X1mm, skull segmentation via TotalSegmentator, skull region extraction
+
+>```
+>cd ./run
+>python3.9 run_preprocessing.py
+>```
+
+* The preprocessed images will be save into ./Cranial CT data/Cranial CT nifti isotropic crop, and the preprocessed skull masks will be saved into ./Cranial CT data/Cranial CT isotropic segmentations crop
+
+* The training/validation(5-fold cross-validation) and testing partition need to be specified in the ./data_partition/Case_partition.xlsx file. 
+
 ## Training
 
-1. Data preprocessing: converting dcm file into nifti, isotropic resampling to 1X1X1mm, skull segmentation via TotalSegmentator, skull region extraction
-
-cd ./run
-
-python3.9 run_preprocessing.py
-
-The preprocessed images will be save into ./Cranial CT data/Cranial CT nifti isotropic crop, and the preprocessed skull masks will be saved into ./Cranial CT data/Cranial CT isotropic segmentations crop
-
-2. Run training
-
-The training/validation(5-fold cross-validation) and testing partition need to be specified in the Case_partition.xlsx file. 
-
-
-python3.9 train.py --mdl_type [model_type] --input_mode [input_mode]
+>```
+>python3.9 train.py --mdl_type [model_type] --input_mode [input_mode]
+>```
 
 The model_type and input_mode variables can be selected as shown in the table below.
-After training, the models can be found under ./ForensicSexEstimation
+After training, the models can be found under folder ForensicSexEstimation.
 
 <table>
   <tr>
@@ -54,7 +63,7 @@ After training, the models can be found under ./ForensicSexEstimation
   </tr>
   <tr>
     <td>skull</td>
-    <td>Use the intersection of image and skull mask as input.</td>
+    <td>Use the intersection of image and skull mask (image ∩ skull mask) as input.</td>
   </tr>
   <tr>
     <td rowspan="3">ResNet_auxiliary</td>
@@ -100,15 +109,24 @@ After training, the models can be found under ./ForensicSexEstimation
 > }
 > ```
 
+Operating point/probability threshold selection on validation sets
+
+
+
 ## Testing
 
-cd ./run
+>```
+>cd ./run
+>python3.9 test.py --mdl_type [model_type] --input_mode [input_mode]
+>```
 
-python3.9 run_preprocessing.py
+The sex estimation results for the testing data can be found under the 'test' folder in the model folders.
 
-python3.9 test.py --mdl_type [model_type] --input_mode [input_mode]
+## Weights 
 
+Trained weights are available for image ∩ skull mask as input at: .
 
+Please place the model folders under folder ForensicSexEstimation.
 
 
 
