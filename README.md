@@ -87,17 +87,19 @@ After training, the models can be found under ./ForensicSexEstimation
 </table>
 
 * For information on the Walker scores, please refer to:
+> ```
+> @article{walker2008sexing, 
+>   title={Sexing skulls using discriminant function analysis of visually assessed traits}, 
+>   author={Walker, Phillip L}, 
+>   journal={American Journal of Physical Anthropology: The Official Publication of the American Association of Physical Anthropologists}, 
+>   volume={136}, 
+>   number={1}, 
+>   pages={39--50}, 
+>   year={2008}, 
+>   publisher={Wiley Online Library} 
+> }
+> ```
 
-@article{walker2008sexing,
-  title={Sexing skulls using discriminant function analysis of visually assessed traits},
-  author={Walker, Phillip L},
-  journal={American Journal of Physical Anthropology: The Official Publication of the American Association of Physical Anthropologists},
-  volume={136},
-  number={1},
-  pages={39--50},
-  year={2008},
-  publisher={Wiley Online Library}
-}
 ## Testing
 
 cd ./run
