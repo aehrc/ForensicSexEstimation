@@ -111,14 +111,31 @@ After training, the models can be found under folder ForensicSexEstimation.
 
 Operating point/probability threshold selection on validation sets
 
+## Evaluate
+
+After training completed and before testing, the probability thresholds need to be determinded on the validation set.
+
+>```
+>cd ./run
+>python3.9 evaluate.py --mdl_type [model_type] --input_mode [input_mode]
+>```
 
 
 ## Testing
+
+* Generating test outcomes
 
 >```
 >cd ./run
 >python3.9 test.py --mdl_type [model_type] --input_mode [input_mode]
 >```
+
+* Calculate testing performance
+
+>```
+>python3.9 calculate_test_performance.py --mdl_type [model_type] --input_mode [input_mode]
+>```
+
 
 The sex estimation results for the testing data can be found under the 'test' folder in the model folders.
 
