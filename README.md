@@ -20,7 +20,7 @@ For TotalSegmentator installation, please use the v2.0.5 release:
 https://github.com/wasserth/TotalSegmentator/releases/tag/v2.0.5
 
 
-Please place your dicom CT data in the folder ./Cranial CT data
+Please place your raw dicom CT data in the folder ./Cranial CT data/CT dicom data
 
 ## Data preprocessing
 
