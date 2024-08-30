@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument('--input_mode', help='the type of input: whole CT image, image and skull mask, or skull', type=str, default='skull')
     parser.add_argument('--batch', help='batch size', type=int, default=4)
     parser.add_argument('--num_metrics', help='number of Walker traits (bilateral)', type=int, default=7)
-    parser.add_argument('--num_classes', help='number of biological sex classes, 0 (male) or 1 (female). Since this is binary classification, it will be set as 1.', type=int, default=1)
+    parser.add_argument('--num_classes', help='number of forensic sex classes, 0 (male) or 1 (female). Since this is binary classification, it will be set as 1.', type=int, default=1)
             
     args = parser.parse_args()        
     batch = args.batch
@@ -62,11 +62,11 @@ if __name__ == '__main__':
     '''
     Start training the network
     '''    
-    data_path = '/datasets/work/hb-radiationtqa/work/Cranial CT data/Cranial CT nifti isotropic crop/'
-    seg_path = '/datasets/work/hb-radiationtqa/work/Cranial CT data/Cranial CT isotropic segmentations crop/'
-    case_partition_path = '/datasets/work/hb-c-radiation/work/Python_env/myenv_ct_gender/cranial_ct_gender_classification/data_process/Case_partition.xlsx'
+    data_path = '../Cranial CT data/Cranial CT nifti isotropic crop/'
+    seg_path = '../Cranial CT data/Cranial CT isotropic segmentations crop/'
+    case_partition_path = '../data_partition/Case_partition.xlsx'
     test_spreadsheet = pd.read_excel(case_partition_path, 'Test')
-    performance_save_folder = os.path.join(parent_folder_path, 'model__' + args.mdl_type + '__' + args.input_mode, 'test')#test_torch2
+    performance_save_folder = os.path.join(parent_folder_path, 'model__' + args.mdl_type + '__' + args.input_mode, 'test')
     os.makedirs(performance_save_folder, exist_ok=True)
     
     test_performance_save_path = os.path.join(performance_save_folder, 'test_pred_output.xlsx')

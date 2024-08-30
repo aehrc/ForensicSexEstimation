@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument('--num_epoch', help='number of training epochs', type=int, default=100)
     parser.add_argument('--batch', help='batch size', type=int, default=4)
     parser.add_argument('--num_metrics', help='number of Walker traits (bilateral)', type=int, default=7)
-    parser.add_argument('--num_classes', help='number of biological sex classes, 0 (male) or 1 (female). Since this is binary classification, it will be set as 1.', type=int, default=1)
+    parser.add_argument('--num_classes', help='number of forensic sex classes, 0 (male) or 1 (female). Since this is binary classification, it will be set as 1.', type=int, default=1)
     parser.add_argument('--aug', help='number of augmentation option', type=int, default=3)
     # parser.add_argument('--log_dir', help='tensorboard save path', default='tensorboard/ResNet/')
     parser.add_argument('--lr', help='learning rate', type=float, default=1e-3)
@@ -68,12 +68,12 @@ if __name__ == '__main__':
     '''
     Start training the network
     '''    
-    data_path = '/datasets/work/hb-radiationtqa/work/Cranial CT data/Cranial CT nifti isotropic crop/'
-    seg_path = '/datasets/work/hb-radiationtqa/work/Cranial CT data/Cranial CT isotropic segmentations crop/'
+    data_path = '../Cranial CT data/Cranial CT nifti isotropic crop/'
+    seg_path = '../Cranial CT data/Cranial CT isotropic segmentations crop/'
     
-    train_spreadsheet = pd.read_excel('/datasets/work/hb-c-radiation/work/Python_env/myenv_ct_gender/cranial_ct_gender_classification/data_process/Case_partition.xlsx', 'Train'+str(args.fold))
+    train_spreadsheet = pd.read_excel('../data_partition/Case_partition.xlsx', 'Train'+str(args.fold))
     
-    val_spreadsheet = pd.read_excel('/datasets/work/hb-c-radiation/work/Python_env/myenv_ct_gender/cranial_ct_gender_classification/data_process/Case_partition.xlsx', 'Val'+str(args.fold))
+    val_spreadsheet = pd.read_excel('../data_partition/Case_partition.xlsx', 'Val'+str(args.fold))
 
     if  args.input_mode == 'image':
         # Use image only input

@@ -378,3 +378,10 @@ def round_to_nearest_walker_score(array):
 
     return closest_numbers_reshaped        
   
+def mininum_distance_roc(tprs, fprs, thresholds):
+    metric = np.sqrt((1-tprs)**2 + fprs**2)
+    # index = np.argmin(metric)
+    min_value = np.min(metric)  # Find the minimum value in the metric array
+    min_indices = np.where(metric == min_value)[0]  # Find all indices where the metric equals the minimum value
+    
+    return thresholds[min_indices[-1]], tprs[min_indices[-1]], fprs[min_indices[-1]]  
