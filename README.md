@@ -140,7 +140,8 @@ The sex estimation results for the testing data can be found under the 'test' fo
 
 ## Weights 
 
-Trained weights are available for image ∩ skull mask as input at: https://github.com/aehrc/ForensicSexEstimation/releases/tag/Weights.
+Trained weights(ResNet_model_weights.zip
+) are available for image ∩ skull mask as input at: https://github.com/aehrc/ForensicSexEstimation/releases/tag/Weights.
 
 Please place the model folders under folder ForensicSexEstimation.
 
