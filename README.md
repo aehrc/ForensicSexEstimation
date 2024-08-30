@@ -109,7 +109,6 @@ After training, the models can be found under folder ForensicSexEstimation.
 > }
 > ```
 
-Operating point/probability threshold selection on validation sets
 
 ## Evaluate
 
