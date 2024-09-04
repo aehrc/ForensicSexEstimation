@@ -9,13 +9,15 @@ A deep learning framework for forensic sex estimation from 3D CT
 
 ## Setup conda environment Python3.9
 
+Step 1:
 >```
 >git clone https://github.com/aehrc/ForensicSexEstimation.git
 >cd ForensicSexEstimation
 >pip install -r requirements.txt
 >```
 
-For TotalSegmentator installation, please use the v2.0.5 release:
+Step 2:
+Manually install TotalSegmentator. please use the v2.0.5 release:
 
 https://github.com/wasserth/TotalSegmentator/releases/tag/v2.0.5
 
@@ -144,6 +146,17 @@ Trained weights (ResNet_model_weights.zip
 ) are available for image ∩ skull mask as input at: https://github.com/aehrc/ForensicSexEstimation/releases/tag/Weights.
 
 Please place the model folders under folder ForensicSexEstimation.
+
+## Testing on sample data
+
+Two sample images can be found in /Cranial CT data/sample_data, which have been preprocessed and only include the skull region. The forensic sex for these two cases are case 1: F(female) and case 2: M(male).
+
+To test sex estimation prediction on these two sample images, please use:
+
+>```
+>cd ./run
+>python3.9 Test_sample_data.py --mdl_type [model_type]
+>```
 
 
 
