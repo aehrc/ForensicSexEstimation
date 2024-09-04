@@ -206,7 +206,7 @@ def importimage_3D_image_skull (image_path, anno_df, seg_path=None, im_shape=(12
         
         '''
         
-        bone_mask_sitk = sitk.ReadImage(os.path.join(seg_path, case_name))
+        bone_mask_sitk = sitk.ReadImage(os.path.join(seg_path, case_name + '.nii.gz'))
         bone_mask_sitk = sitk.BinaryMorphologicalClosing(bone_mask_sitk, [5,5,5])
             
         bone_mask = np.transpose(sitk.GetArrayFromImage(bone_mask_sitk), (1, 2, 0))
@@ -282,7 +282,7 @@ def importimage_3D_skull (image_path, anno_df, seg_path=None, im_shape=(128,128,
      
         img_norm = np.expand_dims(img_resize, axis=0) 
                 
-        bone_mask_sitk = sitk.ReadImage(os.path.join(seg_path, case_name))
+        bone_mask_sitk = sitk.ReadImage(os.path.join(seg_path, case_name + '.nii.gz'))
         bone_mask_sitk = sitk.BinaryMorphologicalClosing(bone_mask_sitk, [5,5,5])
             
         bone_mask = np.transpose(sitk.GetArrayFromImage(bone_mask_sitk), (1, 2, 0))
